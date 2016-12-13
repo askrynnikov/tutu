@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  train: one
+  user: one
+  initial_station: one
+  final_station: one
+
+two:
+  train: two
+  user: two
+  initial_station: two
+  final_station: two

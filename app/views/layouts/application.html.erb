@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tutu</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Tutu</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<%= yield %>
+
+<footer>
+  <p>(с) 2016 Андрей Скрынников. Учебный проект в
+    <a href="www.thinknetica.com">онлайн-школе Thinknetica</a></p>
+</footer>
+
+</body>
 </html>
