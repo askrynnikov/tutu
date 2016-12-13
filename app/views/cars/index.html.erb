@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Вагоны</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Номер вагона</th>
+    <th>Номер поезда</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.number %></td>
+        <td><%= car.train_id %></td>
+        <td><%= link_to 'Show', sti_car_path(car.type, car) %></td>
+        <td><%= link_to "See all #{car.type.pluralize}", sti_car_path(car.type) %></td>
+        <td><%= link_to 'Edit', sti_car_path(car.type, car, :edit) %></td>
+        <td>
+          <%= link_to 'Destroy', sti_car_path(car.type, car), method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'See all cars', sti_car_path %>
+<%= link_to "New #{@type}", sti_car_path(@type, nil, :new) %>

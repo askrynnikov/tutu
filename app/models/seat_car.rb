@@ -1,0 +1,1 @@
+class SeatCar < Car; end
