@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  top_places: 1
+  lower_places: 1
+  train: one
+  type: one
+
+two:
+  number: MyString
+  top_places: 1
+  lower_places: 1
+  train: two
+  type: two

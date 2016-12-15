@@ -1,0 +1,1 @@
+class CompartmentCar < Car; end

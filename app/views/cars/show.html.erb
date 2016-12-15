@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @car.number %>
+</p>
+
+<p>
+  <strong>Тип вагона:</strong>
+  <% if @car.type.present? %>
+      <%= @car.type %>
+  <% else %>
+      Тип не определен
+  <% end %>
+</p>
+
+<p>
+  <strong>В поезде:</strong>
+  <% if @car.train.present? %>
+      <%= @car.train.number %>
+  <% else %>
+      Не указано
+  <% end %>
+</p>
+
+<%= link_to 'Edit', sti_car_path(@car.type, @car, :edit) %> |
+<%= link_to 'Back', cars_path %>

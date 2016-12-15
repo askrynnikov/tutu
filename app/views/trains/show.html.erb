@@ -6,6 +6,36 @@
 </p>
 
 <p>
+  <strong>number_compartment_cars:</strong>
+  <%= @train.number_compartment_cars %>
+</p>
+
+<p>
+  <strong>number_seat_cars:</strong>
+  <%= @train.number_seat_cars %>
+</p>
+
+<p>
+  <strong>top_places_in_compartment_cars:</strong>
+  <%= @train.top_places_in_compartment_cars %>
+</p>
+
+<p>
+  <strong>lower_places_in_compartment_cars:</strong>
+  <%= @train.lower_places_in_compartment_cars %>
+</p>
+
+<p>
+  <strong>top_places_in_seat_cars:</strong>
+  <%= @train.top_places_in_seat_cars %>
+</p>
+
+<p>
+  <strong>lower_places_in_seat_cars:</strong>
+  <%= @train.lower_places_in_seat_cars %>
+</p>
+
+<p>
   <strong>На станции:</strong>
   <% if @train.current_station.present? %>
       <%= @train.current_station.title %>

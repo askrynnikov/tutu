@@ -1,0 +1,33 @@
+<%= form_for(car) do |f| %>
+    <%= render 'common/errors', resource: car %>
+
+    <div class="field">
+      <%= f.label :number %><br>
+      <%= f.text_field :number %>
+    </div>
+
+    <div class="field">
+      <%= f.label :type %><br>
+      <%= f.select :type, Car.types.map {|r| [r.humanize, r.camelcase]},
+                   {}, disabled: @type!= "Car" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :top_places %><br>
+      <%= f.number_field :top_places %>
+    </div>
+
+    <div class="field">
+      <%= f.label :lower_places %><br>
+      <%= f.number_field :lower_places %>
+    </div>
+
+    <div class="field">
+      <%= f.label :train, "Поезд" %>
+      <%= f.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
