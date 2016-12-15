@@ -44,13 +44,13 @@ class CarsController < ApplicationController
   private
 
   def set_type
-    @type = type
+    @type ||= type
   end
   def type
-    Car.types.include?(params[:type]) ? params[:type] : "Car"
+    @type || (Car.types.include?(params[:type]) ? params[:type] : "Car")
   end
   def type_class
-    type.constantize
+    @type_class ||= type.constantize
   end
 
   
