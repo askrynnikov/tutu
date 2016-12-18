@@ -11,15 +11,40 @@
       <%= f.type_select @type %>
     </div>
 
-    <div class="field">
-      <%= f.label :top_places %><br>
-      <%= f.number_field :top_places %>
-    </div>
+    <% if @type== "Car" || %w(CompartmentCar EconomyCar SleepingCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :lower_places %><br>
+          <%= f.number_field :lower_places %>
+        </div>
+    <% end %>
 
-    <div class="field">
-      <%= f.label :lower_places %><br>
-      <%= f.number_field :lower_places %>
-    </div>
+    <% if @type== "Car" || %w(CompartmentCar EconomyCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :top_places %><br>
+          <%= f.number_field :top_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(EconomyCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :lower_side_places %><br>
+          <%= f.number_field :lower_side_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(EconomyCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :top_side_places %><br>
+          <%= f.number_field :top_side_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(SeatCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :seat_places %><br>
+          <%= f.number_field :seat_places %>
+        </div>
+    <% end %>
 
     <div class="field">
       <%= f.label :train, "Поезд" %>

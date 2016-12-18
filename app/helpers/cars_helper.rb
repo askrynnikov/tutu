@@ -3,7 +3,9 @@ module CarsHelper
     def type_select(type)
       self.select :type, Car.types.map {|r| [r.humanize, r.camelcase]},
                   {}, disabled: type!= "Car"
-
+      # redirect_to :back
+      # redirect_back(fallback_location: fallback_location)
+        # render action: "car_show"
       # <%= f.select :type, Car.types.map {|r| [r.humanize, r.camelcase]},
       #                {}, disabled: @type!= "Car" %>
 

@@ -11,28 +11,28 @@
 </p>
 
 <p>
-  <strong>number_seat_cars:</strong>
-  <%= @train.number_seat_cars %>
+  <strong>number_economy_cars:</strong>
+  <%= @train.number_economy_cars %>
 </p>
 
 <p>
   <strong>top_places_in_compartment_cars:</strong>
-  <%= @train.top_places_in_compartment_cars %>
+  <%= @train.count_places('CompartmentCar', :top_places) %>
 </p>
 
 <p>
   <strong>lower_places_in_compartment_cars:</strong>
-  <%= @train.lower_places_in_compartment_cars %>
+  <%= @train.count_places('CompartmentCar', :lower_places) %>
 </p>
 
 <p>
-  <strong>top_places_in_seat_cars:</strong>
-  <%= @train.top_places_in_seat_cars %>
+  <strong>top_places_in_economy_cars:</strong>
+  <%= @train.count_places('EconomyCar', :top_places) %>
 </p>
 
 <p>
   <strong>lower_places_in_seat_cars:</strong>
-  <%= @train.lower_places_in_seat_cars %>
+  <%= @train.count_places('EconomyCar', :lower_places) %>
 </p>
 
 <p>
@@ -50,6 +50,19 @@
       <%= @train.route.name %>
   <% else %>
       Маршрут не назначен
+  <% end %>
+</p>
+
+<p>
+  <strong>Вагоны поезда:</strong>
+  <% (if @train.ordering
+       @train.cars.asc
+     else
+       @train.cars.desc
+     end).each do |car| %>
+      <tr>
+        <td><%= link_to car.car_order, car %></td>
+      </tr>
   <% end %>
 </p>
 
