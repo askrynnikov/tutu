@@ -1,7 +1,7 @@
 class Car < ApplicationRecord
   before_validation :set_car_order
   validates :number, presence: true
-  validates :car_order, uniqueness: { scope: :train_id}, allow_blank: true
+  validates :car_order, uniqueness: { scope: :train_id }, allow_blank: true
 
   TYPES = %w(CompartmentCar SeatCar EconomyCar SleepingCar).freeze
 
@@ -24,6 +24,6 @@ class Car < ApplicationRecord
   private
 
   def set_car_order
-    self.car_order = (train.cars.maximum('car_order') || 0) +1
+    self.car_order = (train.cars.maximum('car_order') || 0) + 1
   end
 end

@@ -4,7 +4,7 @@ class Train < ApplicationRecord
   belongs_to :current_station, class_name: RailwayStation, optional: true
   belongs_to :route, optional: true
   has_many :tickets
-  has_many :cars #, -> { order('cars.car_order DESC') }
+  has_many :cars
 
   delegate :compartment_cars, :seat_cars, :economy_cars, :sleeping_cars, to: :cars
 
