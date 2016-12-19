@@ -44,16 +44,17 @@ class CarsController < ApplicationController
   private
 
   def set_type
-    @type = type
-  end
-  def type
-    Car.types.include?(params[:type]) ? params[:type] : "Car"
-  end
-  def type_class
-    type.constantize
+    @type ||= type
   end
 
-  
+  def type
+    @type || (Car.types.include?(params[:type]) ? params[:type] : "Car")
+  end
+
+  def type_class
+    @type_class ||= type.constantize
+  end
+
   # Use callbacks to share common setup or conscarts between actions.
   def set_car
     @car = type_class.find(params[:id])
@@ -61,6 +62,9 @@ class CarsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def car_params
-    params.require(type.underscore.to_sym).permit(:number, :type, :train_id, :top_places, :lower_places)
+    params.require(type.underscore.to_sym).permit(:number, :type, :train_id,
+                                                  :top_places, :lower_places,
+                                                  :top_side_places, :lower_side_places,
+                                                  :seat_places)
   end
 end

@@ -12,19 +12,7 @@
   </thead>
 
   <tbody>
-  <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.number %></td>
-        <td><%= car.train_id %></td>
-        <td><%= link_to 'Show', sti_car_path(car.type, car) %></td>
-        <td><%= link_to "See all #{car.type.pluralize}", sti_car_path(car.type) %></td>
-        <td><%= link_to 'Edit', sti_car_path(car.type, car, :edit) %></td>
-        <td>
-          <%= link_to 'Destroy', sti_car_path(car.type, car), method: :delete,
-                      data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-  <% end %>
+    <%= render 'cars', cars: @cars %>
   </tbody>
 </table>
 

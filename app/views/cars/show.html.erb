@@ -14,6 +14,41 @@
   <% end %>
 </p>
 
+<% unless @car.lower_places.nil? %>
+    <p>
+      <strong>Нижних мест:</strong>
+      <%= @car.lower_places %>
+    </p>
+<% end %>
+
+<% unless @car.top_places.nil? %>
+    <p>
+      <strong>Верхних мест:</strong>
+      <%= @car.top_places %>
+    </p>
+<% end %>
+
+<% unless @car.lower_side_places.nil? %>
+    <p>
+      <strong>Нижних боковых мест:</strong>
+      <%= @car.lower_side_places %>
+    </p>
+<% end %>
+
+<% unless @car.top_side_places.nil? %>
+    <p>
+      <strong>Верхних боковых мест:</strong>
+      <%= @car.top_side_places %>
+    </p>
+<% end %>
+
+<% unless @car.seat_places.nil? %>
+    <p>
+      <strong>Мест для сидения:</strong>
+      <%= @car.seat_places %>
+    </p>
+<% end %>
+
 <p>
   <strong>В поезде:</strong>
   <% if @car.train.present? %>

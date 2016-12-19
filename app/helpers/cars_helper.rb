@@ -4,9 +4,11 @@ module CarsHelper
   end
 
   def format_sti(action, type, car)
-    action || car ?
-                "#{format_action(action)}#{type.underscore}" :
-                "#{type.underscore.pluralize}"
+    if action || car
+      "#{format_action(action)}#{type.underscore}"
+    else
+      type.underscore.pluralize.to_s
+    end
     # if type.nil?
     # action
     # else

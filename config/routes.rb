@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :cars
   resources :compartment_cars, controller: 'cars', type: 'CompartmentCar'
   resources :seat_cars, controller: 'cars', type: 'SeatCar'
+  resources :economy_cars, controller: 'cars', type: 'EconomyCar'
+  resources :sleeping_cars, controller: 'cars', type: 'SleepingCar'
   resources :routes
   resources :trains
   resources :railway_stations
