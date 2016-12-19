@@ -1,4 +1,6 @@
 class EconomyCar < Car
+  NIL_PLACES = %i(seat_places).freeze
+
   validates :top_places, presence: true, numericality: { only_integer: true }
   validates :lower_places, presence: true, numericality: { only_integer: true }
   validates :top_side_places, presence: true, numericality: { only_integer: true }
@@ -6,9 +8,7 @@ class EconomyCar < Car
 
   before_validation :set_nil
 
-  private
-
-  def set_nil
-    self.seat_places = nil
+  def nil_places
+    NIL_PLACES
   end
 end
