@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217044055) do
+ActiveRecord::Schema.define(version: 20161220203154) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "number"
-    t.integer  "top_places",        default: 0
-    t.integer  "lower_places",      default: 0
+    t.integer  "top_places"
+    t.integer  "lower_places"
     t.integer  "train_id"
-    t.string   "type",                          null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "type",              null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "car_order"
-    t.integer  "top_side_places",   default: 0
-    t.integer  "lower_side_places", default: 0
-    t.integer  "seat_places",       default: 0
+    t.integer  "top_side_places"
+    t.integer  "lower_side_places"
+    t.integer  "seat_places"
     t.index ["train_id"], name: "index_cars_on_train_id"
   end
 
@@ -33,10 +33,14 @@ ActiveRecord::Schema.define(version: 20161217044055) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "railway_stations_routes", id: false, force: :cascade do |t|
-    t.integer "railway_station_id", null: false
-    t.integer "route_id",           null: false
-    t.integer "station_order"
+  create_table "railway_stations_routes", force: :cascade do |t|
+    t.integer  "railway_station_id"
+    t.integer  "route_id"
+    t.integer  "station_order"
+    t.datetime "arrival"
+    t.datetime "departure"
+    t.index ["railway_station_id"], name: "index_railway_stations_routes_on_railway_station_id"
+    t.index ["route_id"], name: "index_railway_stations_routes_on_route_id"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -48,12 +52,14 @@ ActiveRecord::Schema.define(version: 20161217044055) do
   create_table "tickets", force: :cascade do |t|
     t.integer  "train_id"
     t.integer  "user_id"
-    t.integer  "initial_station_id"
-    t.integer  "final_station_id"
+    t.integer  "start_station_id"
+    t.integer  "end_station_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["final_station_id"], name: "index_tickets_on_final_station_id"
-    t.index ["initial_station_id"], name: "index_tickets_on_initial_station_id"
+    t.string   "passenger_name"
+    t.string   "passenger_passport"
+    t.index ["end_station_id"], name: "index_tickets_on_end_station_id"
+    t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end

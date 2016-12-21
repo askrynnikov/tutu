@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  before_action :set_train, only: [:new, :create]
   before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :set_type
 
@@ -17,11 +18,20 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(car_params)
-    if @car.save
-      redirect_to @car, notice: "#{type} was successfully created."
+    if @train
+      @car = @train.cars.new(car_params)
+      if @car.save
+        redirect_to @train
+      else
+        render action: 'new'
+      end
     else
-      render action: 'new'
+      @car = Car.new(car_params)
+      if @car.save
+        redirect_to @car, notice: "#{type} was successfully created."
+      else
+        render action: 'new'
+      end
     end
   end
 
@@ -56,6 +66,10 @@ class CarsController < ApplicationController
   end
 
   # Use callbacks to share common setup or conscarts between actions.
+  def set_train
+    @train = Train.find(params[:train_id]) if params[:train_id]
+  end
+
   def set_car
     @car = type_class.find(params[:id])
   end

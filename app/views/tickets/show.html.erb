@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket info</h1>
+
+<p>Train number</p>
+<p><%= @ticket.train.number %></p>
+
+<p>Departure station</p>
+<p><%= @ticket.start_station.title %></p>
+
+<p>Arrival station</p>
+<p><%= @ticket.end_station.title %></p>
+
+<p>Passenger name</p>
+<p><%= @ticket.passenger_name %></p>
+
+<p>Passenger passport</p>
+<p><%= @ticket.passenger_passport %></p>

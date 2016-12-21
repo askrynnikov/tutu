@@ -5,10 +5,18 @@ Rails.application.routes.draw do
   resources :economy_cars, controller: 'cars', type: 'EconomyCar'
   resources :sleeping_cars, controller: 'cars', type: 'SleepingCar'
   resources :routes
-  resources :trains
-  resources :railway_stations
-  get 'welcome/index'
+  resources :trains do
+    resources :cars, shallow: true
+  end
+  resources :railway_stations do
+    patch :update_station_order_arrival_departure, on: :member
+  end
 
+  resource :search, only: [:create, :show]
+  resources :tickets
+  # resources :tickets, only: [:show, :create, :new]
+
+  get 'welcome/index'
   root 'welcome#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

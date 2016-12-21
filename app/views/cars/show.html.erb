@@ -59,4 +59,4 @@
 </p>
 
 <%= link_to 'Edit', sti_car_path(@car.type, @car, :edit) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back', @car.train.present? ? @car.train : cars_path %>
