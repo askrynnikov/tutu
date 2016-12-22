@@ -15,7 +15,9 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new(train_id: params[:train_id], start_station_id: params[:start_station_id], end_station_id: params[:end_station_id])
+    # @ticket = Ticket.new(train_id: params[:train_id], start_station_id: params[:start_station_id], end_station_id: params[:end_station_id])
+    # не забывать про возможности slice в Rails
+    @ticket = Ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
   end
 
   private

@@ -4,6 +4,8 @@ class Search
   attr_accessor :start_station_id, :end_station_id
   attr_reader :search_result
 
+  accepts_nested_attributes_for :tickets
+
   def find_start_station
     @start_station ||= RailwayStation.find(start_station_id)
   end
