@@ -55,7 +55,7 @@
 
 <p>
   <strong>Вагоны поезда:</strong>
-  <% @train.cars.ordered_by(@train.car_ordering).each do |car| %>
+  <% @train.cars.each do |car| %>
       <tr>
         <td><%= link_to car.car_order, car %></td>
       </tr>

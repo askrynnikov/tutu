@@ -7,7 +7,9 @@ class Train < ApplicationRecord
   # has_many :cars, -> { order("car_order #{scoping}") }
   # has_many :cars, -> { order("car_order #{model_name.methods.public_methods}") }
   # has_many :cars, -> { order(car_order: train.car_ordering) }
-  has_many :cars
+
+  # has_many :cars
+  has_many :cars, -> (train1) { order(car_order: train1.car_ordering) }
 
   delegate :compartment_cars, :seat_cars, :economy_cars, :sleeping_cars, to: :cars
 
