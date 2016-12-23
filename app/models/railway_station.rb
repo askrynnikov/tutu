@@ -15,9 +15,9 @@ class RailwayStation < ApplicationRecord
     # railway_station_route.update_column(:station_order, station_order)
     # railway_station_route.update_attributes!(station_order: station_order) if railway_station_route
     railway_station_route = station_route(route)
-    railway_station_route.update(station_order: params[:station_order],
-                                 arrival: params[:arrival],
-                                 departure: params[:departure]) if railway_station_route
+    railway_station_route.update(params.slice(:station_order,
+                                              :arrival,
+                                              :departure)) if railway_station_route
   end
 
   def arrival_in(route)
@@ -34,6 +34,6 @@ class RailwayStation < ApplicationRecord
 
   protected
   def station_route(route)
-    @station_route ||= railway_stations_routes.where(route: route).first
+    @station_route = railway_stations_routes.where(route: route).first
   end
 end

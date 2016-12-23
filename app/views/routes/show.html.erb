@@ -27,7 +27,7 @@
             <td><%= station.title %></td>
             <%= form_tag update_station_order_arrival_departure_railway_station_path(station), method: :patch do %>
                 <td><%= number_field_tag :station_order, station.station_order_in(@route) %></td>
-                <td><%= datetime_field_tag :arrival, station.arrival_in(@route) %></td>
+                <td><%= datetime_field_tag :arrival, station.arrival_in(@route), step: 51 %></td>
                 <td><%= datetime_field_tag :departure, station.departure_in(@route) %></td>
                 <td><%= hidden_field_tag :route_id, @route.id %></td>
                 <td><%= submit_tag "Изменить" %></td>
