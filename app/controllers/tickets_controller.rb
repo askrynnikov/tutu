@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
 
   def create
     # @ticket = Ticket.new(ticket_params)
-    @ticket = current_user.ticket.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       redirect_to @ticket
     else
@@ -20,7 +20,10 @@ class TicketsController < ApplicationController
     # @ticket = Ticket.new(train_id: params[:train_id], start_station_id: params[:start_station_id], end_station_id: params[:end_station_id])
     # не забывать про возможности slice в Rails
     # @ticket = Ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
-    @ticket = current_user.ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
+    # @ticket = current_user.tickets.new(params.slice(:train_id, :start_station_id, :end_station_id))
+    @ticket = current_user.tickets.new(train_id: params[:train_id],
+                                       start_station_id: params[:start_station_id],
+                                       end_station_id: params[:end_station_id])
   end
 
   private

@@ -1,13 +1,10 @@
 <h1>Buying ticket</h1>
 
-<p>Train number</p>
-<p><%= @train.number %></p>
+<p><strong>Train number: </strong><%= @train.number %></p>
 
-<p>Departure station</p>
-<p><%= @start_station.title %></p>
+<p><strong>Departure station: </strong><%= @start_station.title %></p>
 
-<p>Arrival station</p>
-<p><%= @end_station.title %></p>
+<p><strong>Arrival station: </strong><%= @end_station.title %></p>
 
 <h1>Passenger info</h1>
 <%= form_for(@ticket) do |f| %>

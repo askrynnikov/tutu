@@ -1,19 +1,13 @@
 <h1>Ticket info</h1>
 
-<p>Ticket owner</p>
-<p><%= @ticket.user.email %></p>
+<p><strong>Ticket owner: </strong><%= @ticket.user.email %></p>
 
-<p>Train number</p>
-<p><%= @ticket.train.number %></p>
+<p><strong>Train number: </strong><%= @ticket.train.number %></p>
 
-<p>Departure station</p>
-<p><%= @ticket.start_station.title %></p>
+<p><strong>Departure station: </strong><%= @ticket.start_station.title %></p>
 
-<p>Arrival station</p>
-<p><%= @ticket.end_station.title %></p>
+<p><strong>Arrival station: </strong><%= @ticket.end_station.title %></p>
 
-<p>Passenger name</p>
-<p><%= @ticket.passenger_name %></p>
+<p><strong>Passenger name: </strong><%= @ticket.passenger_name %></p>
 
-<p>Passenger passport</p>
-<p><%= @ticket.passenger_passport %></p>
+<p><strong>Passenger passport: </strong><%= @ticket.passenger_passport %></p>
