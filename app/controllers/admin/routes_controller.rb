@@ -20,7 +20,7 @@ class Admin::RoutesController < Admin::BaseController
 
     respond_to do |format|
       if @route.save
-        format.html { redirect_to @route, notice: 'Маршрут был успешно создан.' }
+        format.html { redirect_to [:admin, @route], notice: 'Маршрут был успешно создан.' }
         format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::RoutesController < Admin::BaseController
   def update
     respond_to do |format|
       if @route.update(route_params)
-        format.html { redirect_to @route, notice: 'Маршрут был успешно обновлен.' }
+        format.html { redirect_to [:admin, @route], notice: 'Маршрут был успешно обновлен.' }
         format.json { render :show, status: :ok, location: @route }
       else
         format.html { render :edit }
@@ -44,7 +44,7 @@ class Admin::RoutesController < Admin::BaseController
   def destroy
     @route.destroy
     respond_to do |format|
-      format.html { redirect_to routes_url, notice: 'Маршрут был успешно удален.' }
+      format.html { redirect_to admin_routes_url, notice: 'Маршрут был успешно удален.' }
       format.json { head :no_content }
     end
   end

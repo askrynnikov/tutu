@@ -1,5 +1,5 @@
-<%= form_for(train) do |f| %>
-    <%= render 'common/errors', resource: Admin::train %>
+<%= form_for([:admin, train]) do |f| %>
+    <%= render 'common/errors', resource: train %>
 
     <div class="field">
       <%= f.label :number %>

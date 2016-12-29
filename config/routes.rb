@@ -3,15 +3,15 @@ Rails.application.routes.draw do
 
   resources :tickets, only: [:show, :create, :new]
 
-  resources :cars
-  resources :compartment_cars, controller: 'cars', type: 'CompartmentCar'
-  resources :seat_cars, controller: 'cars', type: 'SeatCar'
-  resources :economy_cars, controller: 'cars', type: 'EconomyCar'
-  resources :sleeping_cars, controller: 'cars', type: 'SleepingCar'
-
   resource :search, only: [:create, :show]
 
   namespace :admin do
+    resources :cars
+    resources :compartment_cars, controller: 'cars', type: 'CompartmentCar'
+    resources :seat_cars, controller: 'cars', type: 'SeatCar'
+    resources :economy_cars, controller: 'cars', type: 'EconomyCar'
+    resources :sleeping_cars, controller: 'cars', type: 'SleepingCar'
+
     resources :trains do
       resources :cars, shallow: true
       resources :compartment_cars, controller: 'cars', type: 'CompartmentCar', shallow: true

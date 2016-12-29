@@ -14,7 +14,7 @@ module CarsHelper
     if action || car
       "#{format_action(action)}admin_#{type.underscore}"
     else
-      type.underscore.pluralize.to_s
+      "admin_" + type.underscore.pluralize.to_s
     end
   end
 
