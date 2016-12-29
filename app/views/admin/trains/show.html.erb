@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Number:</strong>
   <%= @train.number %>
@@ -57,14 +55,14 @@
   <strong>Вагоны поезда:</strong>
   <% @train.cars.each do |car| %>
       <tr>
-        <td><%= link_to car.car_order, car %></td>
+        <td><%= link_to car.car_order, [:admin, car] %></td>
       </tr>
   <% end %>
 </p>
 
 <p>
-  <%= link_to "Добавить вагон", new_train_car_path(@train) %>
+  <%= link_to "Добавить вагон", new_admin_train_car_path(@train) %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

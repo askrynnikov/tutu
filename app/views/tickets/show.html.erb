@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Ticket info</h1>
+
+<p>Ticket owner</p>
+<p><%= @ticket.user.email %></p>
 
 <p>Train number</p>
 <p><%= @ticket.train.number %></p>

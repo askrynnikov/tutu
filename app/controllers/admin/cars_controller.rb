@@ -1,4 +1,4 @@
-class CarsController < ApplicationController
+class Admin::CarsController < Admin::BaseController
   before_action :set_train, only: [:new, :create]
   before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :set_type

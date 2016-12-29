@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :hidden_params, only: [:new]
   before_action :set_ticket, only: [:show]
 
@@ -6,7 +7,8 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
+    # @ticket = Ticket.new(ticket_params)
+    @ticket = current_user.ticket.new(ticket_params)
     if @ticket.save
       redirect_to @ticket
     else
@@ -17,7 +19,8 @@ class TicketsController < ApplicationController
   def new
     # @ticket = Ticket.new(train_id: params[:train_id], start_station_id: params[:start_station_id], end_station_id: params[:end_station_id])
     # не забывать про возможности slice в Rails
-    @ticket = Ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
+    # @ticket = Ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
+    @ticket = current_user.ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
   end
 
   private

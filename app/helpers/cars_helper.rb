@@ -12,7 +12,7 @@ module CarsHelper
 
   def format_sti(action, type, car)
     if action || car
-      "#{format_action(action)}#{type.underscore}"
+      "#{format_action(action)}admin_#{type.underscore}"
     else
       type.underscore.pluralize.to_s
     end

@@ -1,5 +1,5 @@
 <%= form_for([train, car], :builder => CarsHelper::CarsFormBuilder) do |f| %>
-    <%= render 'common/errors', resource: car %>
+    <%= render 'common/errors', resource: Admin::car %>
 
     <div class="field">
       <%= f.label :number %><br>

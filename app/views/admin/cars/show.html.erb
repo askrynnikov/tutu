@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Number:</strong>
   <%= @car.number %>
@@ -59,4 +57,4 @@
 </p>
 
 <%= link_to 'Edit', sti_car_path(@car.type, @car, :edit) %> |
-<%= link_to 'Back', @car.train.present? ? @car.train : cars_path %>
+<%= link_to 'Back', @car.train.present? ? [:admin, @car.train] : [:admin, cars_path] %>
