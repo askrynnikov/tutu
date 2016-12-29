@@ -1,0 +1,57 @@
+<%= form_for([:admin, train, car], :builder => CarsHelper::CarsFormBuilder) do |f| %>
+    <%= render 'common/errors', resource: car %>
+
+    <div class="field">
+      <%= f.label :number %><br>
+      <%= f.text_field :number %>
+    </div>
+
+    <div class="field">
+      <%= f.label :type %><br>
+      <%= f.type_select @type %>
+    </div>
+
+    <% if @type== "Car" || %w(CompartmentCar EconomyCar SleepingCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :lower_places %><br>
+          <%= f.number_field :lower_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(CompartmentCar EconomyCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :top_places %><br>
+          <%= f.number_field :top_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(EconomyCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :lower_side_places %><br>
+          <%= f.number_field :lower_side_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(EconomyCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :top_side_places %><br>
+          <%= f.number_field :top_side_places %>
+        </div>
+    <% end %>
+
+    <% if @type== "Car" || %w(SeatCar).include?(@type) %>
+        <div class="field">
+          <%= f.label :seat_places %><br>
+          <%= f.number_field :seat_places %>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :train, "Поезд" %>
+      <%= f.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

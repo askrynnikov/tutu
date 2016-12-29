@@ -1,0 +1,20 @@
+<h1>Вагоны</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Номер вагона</th>
+    <th>Номер поезда</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <%= render 'cars', cars: @cars %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'See all cars', sti_car_path %>
+<%= link_to "New #{@type}", sti_car_path(@type, nil, :new) %>

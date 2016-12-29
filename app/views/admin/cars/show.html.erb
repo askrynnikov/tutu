@@ -1,0 +1,60 @@
+<p>
+  <strong>Number:</strong>
+  <%= @car.number %>
+</p>
+
+<p>
+  <strong>Тип вагона:</strong>
+  <% if @car.type.present? %>
+      <%= @car.type %>
+  <% else %>
+      Тип не определен
+  <% end %>
+</p>
+
+<% unless @car.lower_places.nil? %>
+    <p>
+      <strong>Нижних мест:</strong>
+      <%= @car.lower_places %>
+    </p>
+<% end %>
+
+<% unless @car.top_places.nil? %>
+    <p>
+      <strong>Верхних мест:</strong>
+      <%= @car.top_places %>
+    </p>
+<% end %>
+
+<% unless @car.lower_side_places.nil? %>
+    <p>
+      <strong>Нижних боковых мест:</strong>
+      <%= @car.lower_side_places %>
+    </p>
+<% end %>
+
+<% unless @car.top_side_places.nil? %>
+    <p>
+      <strong>Верхних боковых мест:</strong>
+      <%= @car.top_side_places %>
+    </p>
+<% end %>
+
+<% unless @car.seat_places.nil? %>
+    <p>
+      <strong>Мест для сидения:</strong>
+      <%= @car.seat_places %>
+    </p>
+<% end %>
+
+<p>
+  <strong>В поезде:</strong>
+  <% if @car.train.present? %>
+      <%= @car.train.number %>
+  <% else %>
+      Не указано
+  <% end %>
+</p>
+
+<%= link_to 'Edit', sti_car_path(@car.type, @car, :edit) %> |
+<%= link_to 'Back', @car.train.present? ? [:admin, @car.train] : [:admin, cars_path] %>
