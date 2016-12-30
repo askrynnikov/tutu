@@ -12,4 +12,6 @@
 
 <p><strong>Passenger passport: </strong><%= @ticket.passenger_passport %></p>
 
-<%= link_to 'Back', admin_tickets_path %>
+<%= link_to 'Show all', admin_tickets_path %>
+
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %>
