@@ -32,10 +32,9 @@
             <td><%= result.route.name %></td>
             <td><%= @search.find_start_station.departure_in(result.route) %></td>
             <td><%= @search.find_end_station.arrival_in(result.route) %></td>
-            <td><%= result.id %></td>
             <td>
               <%= form_tag new_ticket_path, method: :get do %>
-                  <%= number_field_tag :train_id, result.id %>
+                  <%= hidden_field_tag :train_id, result.id %>
                   <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                   <%= hidden_field_tag :end_station_id, @search.end_station_id %>
                   <%= submit_tag "Buy ticket" %>
