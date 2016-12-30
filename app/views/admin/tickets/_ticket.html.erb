@@ -1,0 +1,7 @@
+<tr>
+  <td><%= ticket.train.number %></td>
+  <td><%= ticket.user.email if ticket.user %></td>
+  <td><%= link_to 'Show', [:admin, ticket] %></td>
+  <td><%= link_to 'Edit', edit_admin_ticket_path(ticket) %></td>
+  <td><%= link_to 'Destroy', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

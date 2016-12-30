@@ -1,15 +1,10 @@
-<h1>Ticket info</h1>
-
-<p><strong>Ticket owner: </strong><%= @ticket.user.email if @ticket.user %></p>
+<h1>Editing Tickets</h1>
 
 <p><strong>Train number: </strong><%= @ticket.train.number %></p>
-
 <p><strong>Departure station: </strong><%= @ticket.start_station.title %></p>
-
 <p><strong>Arrival station: </strong><%= @ticket.end_station.title %></p>
 
-<p><strong>Passenger name: </strong><%= @ticket.passenger_name %></p>
+<%= render 'form' %>
 
-<p><strong>Passenger passport: </strong><%= @ticket.passenger_passport %></p>
-
+<%= link_to 'Show', [:admin, @ticket] %> |
 <%= link_to 'Back', admin_tickets_path %>
