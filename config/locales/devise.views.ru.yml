@@ -9,6 +9,8 @@ ru:
         remember_me: "Запомнить меня"
         reset_password_token: "Ссылка сброса пароля"
         unlock_token: "Токен разблокировки"
+        first_name: 'Имя'
+        last_name: 'Фамилия'
     models:
       user: "Пользователь"
   devise:
@@ -91,6 +93,8 @@ ru:
       already_signed_out: "Выход из системы уже выполнен."
       new:
         sign_in: "Войти"
+      new:
+        log_in: 'Авторизоваться'
       signed_in: "Вход в систему выполнен."
       signed_out: "Выход из системы выполнен."
     shared:
@@ -99,6 +103,7 @@ ru:
         didn_t_receive_confirmation_instructions: "Не получили подтверждение?"
         didn_t_receive_unlock_instructions: "Не получили код разблокировки?"
         forgot_your_password: "Забыли пароль?"
+        log_in: 'Авторизоваться'
         sign_in: "Войти"
         sign_in_with_provider: "Войти с помощью: %{provider}"
         sign_up: "Регистрация"
