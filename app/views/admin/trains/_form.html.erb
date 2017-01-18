@@ -8,9 +8,9 @@
 
     <div class="field">
       <%= f.radio_button(:ordering, true) %>
-      <%= f.label(:ordering_beginning, "Ordering cars from the beginning of the train") %>
+      <%= f.label(:ordering_beginning, t('.ordering_from_beginning')) %>
       <%= f.radio_button(:ordering, false) %>
-      <%= f.label(:ordering_end, "Ordering cars from the end of the train") %>
+      <%= f.label(:ordering_end,  t('.ordering_from_end')) %>
     </div>
 
     <div class="field">

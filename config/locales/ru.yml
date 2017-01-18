@@ -15,6 +15,33 @@ ru:
         title: 'Новая станция'
       form:
         submit: '%{action} станцию'
+      index:
+        railway_stations: 'Железнодорожные станции'
+        new_railway_station: 'Создать железнодорожную станцию'
+        title: 'Название'
+      show:
+        title: 'Название'
+        edit: 'Изменить'
+        back: 'Назад'
+      railway_station:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+    trains:
+      form:
+        ordering_from_beginning: "Нумерация вагонов с головы состава"
+        ordering_from_end: "Нумерация вагонов с хвоста состава"
+      index:
+        trains: 'Поезда'
+        new_train: 'Создать поезд'
+        number: 'Номер'
+      train:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+      new:
+        new_train: 'Новый поезд'
+        back: 'Назад'
   activerecord:
     models:
       railway_station: 'Станция'
