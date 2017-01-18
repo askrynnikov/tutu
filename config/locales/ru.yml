@@ -1,6 +1,25 @@
 ---
 ru:
+  common:
+    back: 'Назад'
+    errors: 'При заполнении формы возникли ошибки'
+  admin:
+    railway_station:
+      new:
+        title: 'Новая станция'
+      form:
+        submit: '%{action} станцию'
   activerecord:
+    models:
+      railway_station: 'Станция'
+      train: 'Поезд'
+    attributes:
+      railway_station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'

@@ -1,19 +1,19 @@
 <h1>Поиск билета</h1>
 
-<%= form_for(@search, method: :post, url: search_path) do |f| %>
-    <div class="field">
-      <%= f.label :start_station_id, "Start station" %>
-      <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
-    </div>
+<div class="row">
+  <%= form_for(@search, method: :post, url: search_path) do |f| %>
+      <div class="col-md-4 ">
+        <%= f.collection_select :start_station_id, @stations, :id, :title, class: 'form-control' %>
+      </div>
 
-    <div class="field">
-      <%= f.label :end_station_id, "End station" %>
-      <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
-    </div>
-    <div class="actions">
-      <%= f.submit 'Search' %>
-    </div>
-<% end %>
+      <div class="col-md-4 ">
+        <%= f.collection_select :end_station_id, @stations, :id, :title, class: 'form-control' %>
+      </div>
+      <div class="col-md-4 ">
+        <%= f.submit 'Search', class: 'btn btn-primary' %>
+      </div>
+  <% end %>
+</div>
 
 <% if @search.search_result %>
     <table>

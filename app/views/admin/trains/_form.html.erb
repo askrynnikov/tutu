@@ -14,12 +14,12 @@
     </div>
 
     <div class="field">
-      <%= f.label :current_station, "Текущая станция" %>
+      <%= f.label :current_station %>
       <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
     </div>
 
     <div class="field">
-      <%= f.label :route, "Маршрут" %>
+      <%= f.label :route %>
       <%= f.collection_select :route_id, Route.all, :id, :name %>
     </div>
 
