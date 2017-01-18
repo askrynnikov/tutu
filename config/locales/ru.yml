@@ -2,9 +2,15 @@
 ru:
   common:
     back: 'Назад'
-    errors: 'При заполнении формы возникли ошибки'
+    errors:
+      model_not_saved: "этот ресурс запрещено сохранять"
+      error:
+        few: '%{count} ошибки'
+        many: '%{count} ошибок'
+        one: '%{count} ошибка'
+        other: '%{count} ошибки'
   admin:
-    railway_station:
+    railway_stations:
       new:
         title: 'Новая станция'
       form:

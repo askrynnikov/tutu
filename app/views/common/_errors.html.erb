@@ -1,7 +1,6 @@
 <% if resource.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
-
+      <h2><%= t('.error', count: resource.errors.count) %> <%= t('.model_not_saved') %>:</h2>
       <ul>
         <% resource.errors.full_messages.each do |message| %>
             <li><%= message %></li>
