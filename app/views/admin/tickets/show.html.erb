@@ -1,6 +1,6 @@
 <h1>Ticket info</h1>
 
-<p><strong>Ticket owner: </strong><%= @ticket.user.email %></p>
+<p><strong>Ticket owner: </strong><%= @ticket.user.email if @ticket.user %></p>
 
 <p><strong>Train number: </strong><%= @ticket.train.number %></p>
 
@@ -12,4 +12,6 @@
 
 <p><strong>Passenger passport: </strong><%= @ticket.passenger_passport %></p>
 
-<%= link_to 'Back', tickets_path %>
+<%= link_to 'Show all', admin_tickets_path %>
+
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %>

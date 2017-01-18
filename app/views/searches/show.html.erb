@@ -13,36 +13,40 @@
     <div class="actions">
       <%= f.submit 'Search' %>
     </div>
-
-    <% if @search.search_result %>
-        <table>
-          <thead>
-          <tr>
-            <td>Train</td>
-            <td>Route</td>
-            <td>Departure time</td>
-            <td>Arrival time</td>
-          </tr>
-          </thead>
-          <tbody>
-          <% @search.search_result.each do |result| %>
-              <tr>
-                <td><%= result.number %></td>
-                <td><%= result.route.name %></td>
-                <td><%= @search.find_start_station.departure_in(result.route) %></td>
-                <td><%= @search.find_end_station.arrival_in(result.route) %></td>
-                <td><%= result.id %></td>
-                <td>
-                  <%= form_tag new_ticket_path, method: :get do %>
-                      <%= number_field_tag :train_id, result.id %>
-                      <%= hidden_field_tag :start_station_id, @search.start_station_id %>
-                      <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                      <%= submit_tag "Buy ticket" %>
-                  <% end %>
-                </td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
-    <% end %>
 <% end %>
+
+<% if @search.search_result %>
+    <table>
+      <thead>
+      <tr>
+        <td>Train</td>
+        <td>Route</td>
+        <td>Departure time</td>
+        <td>Arrival time</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @search.search_result.each do |result| %>
+          <tr>
+            <td><%= result.number %></td>
+            <td><%= result.route.name %></td>
+            <td><%= @search.find_start_station.departure_in(result.route) %></td>
+            <td><%= @search.find_end_station.arrival_in(result.route) %></td>
+            <td>
+              <%= form_tag current_user.admin? ? new_admin_ticket_path : new_ticket_path,
+                           method: :get do %>
+                  <%= hidden_field_tag :train_id, result.id %>
+                  <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                  <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                  <%= submit_tag "Buy ticket" %>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+
+<%= link_to 'Welcome', welcome_index_path %>
+
+<%= link_to 'All tickets', current_user.admin? ? admin_tickets_path : tickets_path %>

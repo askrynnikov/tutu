@@ -1,26 +1,53 @@
 class TicketsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :hidden_params, only: [:new]
-  before_action :set_ticket, only: [:show]
+  before_action :authenticate_user!
+  # before_action :authenticate_user!, only: [:new, :create]
+  # before_action :hidden_params, only: [:new]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def show
   end
 
   def create
     # @ticket = Ticket.new(ticket_params)
-    @ticket = current_user.ticket.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
-      redirect_to @ticket
+      redirect_to @ticket, notice: 'Ticket was successfully created.'
     else
       render :new
     end
   end
 
   def new
-    # @ticket = Ticket.new(train_id: params[:train_id], start_station_id: params[:start_station_id], end_station_id: params[:end_station_id])
-    # не забывать про возможности slice в Rails
-    # @ticket = Ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
-    @ticket = current_user.ticket.new(params.slice(:train_id, :start_station_id, :end_station_id))
+    # @train = Train.find(params[:train_id])
+    # @start_station = RailwayStation.find(params[:start_station_id])
+    # @end_station = RailwayStation.find(params[:end_station_id])
+    @ticket = current_user.tickets.new(params.slice(:train_id,:start_station_id,:end_station_id))
+    # @ticket = current_user.tickets.new(train_id: params[:train_id],
+    #                                    start_station_id: params[:start_station_id],
+    #                                    end_station_id: params[:end_station_id])
+  end
+
+  def index
+    @tickets = current_user.tickets
+  end
+
+  def edit
+  end
+
+  def update
+    @train = Train.find(params[:train_id])
+    @start_station = RailwayStation.find(params[:start_station_id])
+    @end_station = RailwayStation.find(params[:end_station_id])
+    if @ticket.update(ticket_params)
+      redirect_to @ticket, notice: 'Ticket was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_url, notice: 'Ticket was successfully destroyed.'
   end
 
   private
@@ -29,13 +56,13 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit(:train_id, :start_station_id, :end_station_id, :passenger_name, :passenger_passport)
   end
 
-  def hidden_params
-    @train = Train.find(params[:train_id])
-    @start_station = RailwayStation.find(params[:start_station_id])
-    @end_station = RailwayStation.find(params[:end_station_id])
-  end
+  # def hidden_params
+  #   @train = Train.find(params[:train_id])
+  #   @start_station = RailwayStation.find(params[:start_station_id])
+  #   @end_station = RailwayStation.find(params[:end_station_id])
+  # end
 
   def set_ticket
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
   end
 end

@@ -4,5 +4,6 @@
 <p><strong>Departure station: </strong><%= @ticket.start_station.title %></p>
 <p><strong>Arrival station: </strong><%= @ticket.end_station.title %></p>
 
-
 <%= render 'form' %>
+
+<%= link_to 'Back', admin_tickets_path %>
