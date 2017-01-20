@@ -9,6 +9,7 @@ class TicketsController < ApplicationController
 
   def create
     # @ticket = Ticket.new(ticket_params)
+    @test = nil
     @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully created.'
