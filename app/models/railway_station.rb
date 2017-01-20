@@ -6,9 +6,13 @@ class RailwayStation < ApplicationRecord
   has_many :railway_stations_routes
   has_many :routes, through: :railway_stations_routes
 
-  scope :ordered, -> { joins(:railway_stations_routes)
+  scope :ordered, -> { select('railway_stations.*, railway_stations_routes.station_order')
+                         .joins(:railway_stations_routes)
                          .order("railway_stations_routes.station_order")
-                         .distinct}
+                         .uniq }
+  # scope :ordered, -> { joins(:railway_stations_routes)
+  #                        .order("railway_stations_routes.station_order")
+  #                        .distinct}
   def update_station_order_arrival_departure(route, params)
     # railway_station_route = railway_stations_routes.find_by(route: route)
     # railway_station_route = railway_stations_routes.where(route: route).first

@@ -1,6 +1,6 @@
 module Admin
   class TicketsController < Admin::BaseController
-    before_action :hidden_params, only: [:new]
+    # before_action :hidden_params, only: [:new]
     before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
     def show
@@ -16,10 +16,9 @@ module Admin
     end
 
     def new
-      @ticket = Ticket.new(params.slice(:train_id,:start_station_id,:end_station_id))
-      # @ticket = Ticket.new(train_id: params[:train_id],
-      #                      start_station_id: params[:start_station_id],
-      #                      end_station_id: params[:end_station_id])
+      @ticket = Ticket.new(train_id: params[:train_id],
+                           start_station_id: params[:start_station_id],
+                           end_station_id: params[:end_station_id])
     end
 
     def index

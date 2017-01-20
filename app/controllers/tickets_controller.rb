@@ -21,10 +21,10 @@ class TicketsController < ApplicationController
     # @train = Train.find(params[:train_id])
     # @start_station = RailwayStation.find(params[:start_station_id])
     # @end_station = RailwayStation.find(params[:end_station_id])
-    @ticket = current_user.tickets.new(params.slice(:train_id,:start_station_id,:end_station_id))
-    # @ticket = current_user.tickets.new(train_id: params[:train_id],
-    #                                    start_station_id: params[:start_station_id],
-    #                                    end_station_id: params[:end_station_id])
+    # @ticket = current_user.tickets.new(params.slice(:train_id,:start_station_id,:end_station_id))
+    @ticket = current_user.tickets.new(train_id: params[:train_id],
+                                       start_station_id: params[:start_station_id],
+                                       end_station_id: params[:end_station_id])
   end
 
   def index
