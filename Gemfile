@@ -40,6 +40,8 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
+gem 'postmark-rails', '~> 0.15.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
