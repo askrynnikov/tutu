@@ -32,6 +32,14 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'devise-i18n'
+
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
+# gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 5.x
+
+gem 'therubyracer'
+gem 'twitter-bootstrap-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
