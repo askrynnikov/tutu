@@ -31,4 +31,9 @@ en:
           attributes:
             username:
               invalid: "only letters, numbers, and the sign _"
+  admin:
+    trains:
+      form:
+        ordering_from_beginning: "Ordering cars from the beginning of the train"
+        ordering_from_end: "Ordering cars from the end of the train"
 

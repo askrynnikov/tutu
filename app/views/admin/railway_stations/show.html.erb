@@ -1,5 +1,5 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %>:</strong>
   <%= @railway_station.title %>
 </p>
 
@@ -14,5 +14,5 @@
     </ul>
 <% end %>
 
-<%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('.edit'), edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to t('.back'), admin_railway_stations_path %>
