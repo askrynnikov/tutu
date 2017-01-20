@@ -9,12 +9,13 @@
 </head>
 
 <body>
-<p id="notice" class="notice" ><%= notice %></p>
+<p id="notice" class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 <% if user_signed_in? %>
-
-    <div class="alert alert-success">Аккаунт: <%= current_user.email %> <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></div>
+    <div class="alert alert-success">Аккаунт: <%= current_user.email %> <%=
+      link_to "Выйти", destroy_user_session_path, method: :delete, class: "btn btn-danger"
+    %></div>
 <% else %>
     <%= link_to "Войти", new_user_session_path, class: "btn btn-success" %>
 <% end %>
