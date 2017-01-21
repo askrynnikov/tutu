@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
     @test = nil
     @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
+      TicketsMailer.buy_ticket(self.user, self).deliver_now
       redirect_to @ticket, notice: 'Ticket was successfully created.'
     else
       render :new
@@ -48,6 +49,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
+    TicketsMailer.pass_ticket(self.user, self).deliver_now
     redirect_to tickets_url, notice: 'Ticket was successfully destroyed.'
   end
 
