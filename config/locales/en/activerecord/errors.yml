@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      messages:
+        too_long: "%{count} characters is the maximum allowed"
+      models:
+        user:
+          attributes:
+            username:
+              invalid: "only letters, numbers, and the sign _"

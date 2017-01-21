@@ -15,6 +15,8 @@ ru:
         title: 'Новая станция'
       form:
         submit: '%{action} станцию'
+        create: 'Создать'
+        change: 'Изменить'
       index:
         railway_stations: 'Железнодорожные станции'
         new_railway_station: 'Создать железнодорожную станцию'
@@ -53,15 +55,3 @@ ru:
         number: 'Номер'
         current_station: 'Текущая станция'
         route: 'Маршрут'
-    errors:
-      messages:
-        record_invalid: 'Возникли ошибки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
-          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
-        too_long: "%{count} символов максимально допустимо"
-      models:
-        user:
-          attributes:
-            username:
-              invalid: "только буквы, цифры и знак _"
