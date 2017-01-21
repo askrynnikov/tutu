@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby  '2.3.3'
 
 gem 'rubocop', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
