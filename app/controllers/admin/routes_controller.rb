@@ -20,7 +20,7 @@ class Admin::RoutesController < Admin::BaseController
 
     respond_to do |format|
       if @route.save
-        format.html { redirect_to [:admin, @route], notice: 'Маршрут был успешно создан.' }
+        format.html { redirect_to admin_routes_path, notice: 'Маршрут был успешно создан.' }
         format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }

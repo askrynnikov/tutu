@@ -1,6 +1,15 @@
 <tr>
-  <td><%= route.name %></td>
-  <td><%= link_to 'Показать', [:admin, route] %></td>
-  <td><%= link_to 'Редактировать', edit_admin_route_path(route) %></td>
-  <td><%= link_to 'Удалить', [:admin, route], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td>
+    <div id="route_name_<%= route.id %>">
+      <%= route.name %>
+    </div>
+    <%= render 'form', route: route, hidden: true %>
+  </td>
+  <td><%= link_to t('.show'), [:admin, route], class: "btn btn-primary btn-xs" %></td>
+  <td><%= link_to t('.edit'), '', class: "btn btn-warning btn-xs edit_route",
+                  data: { route_id: route.id } %></td>
+  <td><%= link_to t('.destroy'), [:admin, route],
+                  method: :delete,
+                  data: { confirm: 'Вы уверены?' },
+                  class: "btn btn-danger btn-xs" %></td>
 </tr>

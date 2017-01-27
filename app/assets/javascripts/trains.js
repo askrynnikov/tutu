@@ -1,15 +1,15 @@
 $(document).ready(function () {
-    $('a.edit_station').click(function (e) {
+    $('a.edit_train').click(function (e) {
         e.preventDefault();
 
-        var station_id;
+        var train_id;
         var form;
         var title;
 
-        station_id = $(this).data('railwayStationId');
-        console.log(station_id);
-        form = $('#edit_railway_station_' + station_id);
-        title = $('#railway_station_title_' + station_id);
+        train_id = $(this).data('trainId');
+        // console.log(train_id);
+        form = $('#edit_train_' + train_id);
+        title = $('#train_title_' + train_id);
 
         form.toggle();
         title.toggle();
