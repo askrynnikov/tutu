@@ -44,6 +44,7 @@ GEM
     ast (2.3.0)
     bcrypt (3.1.11)
     bcrypt (3.1.11-java)
+    brakeman (3.4.1)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -234,6 +235,7 @@ PLATFORMS
   unknown
 
 DEPENDENCIES
+  brakeman
   byebug
   coffee-rails (~> 4.2)
   devise

@@ -1,8 +1,13 @@
 <tr>
-  <td><%= railway_station.title %></td>
+  <td>
+    <div id="railway_station_title_<%= railway_station.id %>">
+      <%= railway_station.title %>
+    </div>
+    <%= render 'form', railway_station: railway_station, hidden: true %>
+  </td>
   <td><%= link_to t('.show'), [:admin, railway_station], class: "btn btn-primary btn-xs" %></td>
-  <td><%= link_to t('.edit'), edit_admin_railway_station_path(railway_station),
-                  class: "btn btn-warning btn-xs" %></td>
+  <td><%= link_to t('.edit'), '', class: "btn btn-warning btn-xs edit_station",
+                  data: { railway_station_id: railway_station.id } %></td>
   <td><%= link_to t('.destroy'), [:admin, railway_station],
                   method: :delete,
                   data: { confirm: 'Are you sure?' },
