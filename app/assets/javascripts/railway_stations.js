@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    // если используется turbolinks
+    // $(document).on('turbolinks:load', function() {
     $('a.edit_station').click(function (e) {
         e.preventDefault();
 
