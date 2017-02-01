@@ -1,17 +1,15 @@
 $(document).ready(function () {
-    // если используется turbolinks
-    // $(document).on('turbolinks:load', function() {
-    $('a.edit_station').click(function (e) {
+    $('a.edit_route').click(function (e) {
         e.preventDefault();
 
-        var station_id;
+        var route_id;
         var form;
         var title;
 
-        station_id = $(this).data('railwayStationId');
-        console.log(station_id);
-        form = $('#edit_railway_station_' + station_id);
-        title = $('#railway_station_title_' + station_id);
+        route_id = $(this).data('routeId');
+        // console.log(route_id);
+        form = $('#edit_route_' + route_id);
+        title = $('#route_title_' + route_id);
 
         form.toggle();
         title.toggle();

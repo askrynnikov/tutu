@@ -17,6 +17,8 @@ class Route < ApplicationRecord
   end
 
   def set_name
-    self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"
+    if self.name.empty?
+      self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"
+    end
   end
 end

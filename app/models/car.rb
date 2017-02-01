@@ -23,6 +23,23 @@ class Car < ApplicationRecord
   scope :desc, -> { order(car_order: :desc) }
   scope :ordered_by, -> (order) { order(car_order: order) }
 
+  def has_seats?(type_places)
+    case type_places
+    when :lower_places
+      self.type == "Car" || %w(CompartmentCar EconomyCar SleepingCar).include?(self.type)
+    when :top_places
+      self.type== "Car" || %w(CompartmentCar EconomyCar).include?(self.type)
+    when :lower_side_places
+      self.type== "Car" || %w(EconomyCar).include?(self.type)
+    when :top_side_places
+      self.type== "Car" || %w(EconomyCar).include?(self.type)
+    when :seat_places
+      self.type== "Car" || %w(SeatCar).include?(self.type)
+    else
+      false
+    end
+  end
+
   private
 
   def set_car_order

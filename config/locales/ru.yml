@@ -10,6 +10,25 @@ ru:
         one: '%{count} ошибка'
         other: '%{count} ошибки'
   admin:
+    routes:
+      new:
+        title: 'Новый маршрут'
+      form:
+        submit: '%{action} маршрут'
+        create: 'Создать'
+        change: 'Изменить'
+      index:
+        routes: 'Маршруты'
+        new_route: 'Создать маршрут'
+        title: 'Название'
+      show:
+        title: 'Название'
+        edit: 'Изменить'
+        back: 'Назад'
+      route:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
     railway_stations:
       new:
         title: 'Новая станция'
